@@ -3,13 +3,48 @@ import React, { useState } from 'react';
 
 export const ContactForm: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('sending');
-    // Simulated behavior
-    setTimeout(() => setStatus('success'), 1500);
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setStatus('sending');
+  //   // Simulated behavior
+  //   setTimeout(() => setStatus('success'), 1500);
+  // };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setStatus('sending');
+  
+  try {
+    const response = await fetch('https://formspree.io/f/xbdaopeo', {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        message: message
+      })
+    });
+    
+    if (response.ok) {
+      setStatus('success');
+      // Optional: Clear form
+      // setName('');
+      // setEmail('');
+      // setMessage('');
+    } else {
+      setStatus('error');
+    }
+  } catch (error) {
+    setStatus('error');
+    console.error('Failed to send:', error);
+  }
+};
 
   if (status === 'success') {
     return (
@@ -30,17 +65,22 @@ export const ContactForm: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Name</label>
-          <input 
+          <input  
             required
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             className="w-full bg-slate-50 border-b-2 border-slate-100 focus:border-slate-900 transition-all p-3 outline-none text-sm" 
             placeholder="Recruiter / Founder"
           />
         </div>
         <div className="space-y-2">
           <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Email</label>
-          <input 
+          <input
             required
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full bg-slate-50 border-b-2 border-slate-100 focus:border-slate-900 transition-all p-3 outline-none text-sm" 
             placeholder="email@company.com"
           />
@@ -50,6 +90,8 @@ export const ContactForm: React.FC = () => {
         <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Message</label>
         <textarea 
           required
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           rows={4}
           className="w-full bg-slate-50 border-b-2 border-slate-100 focus:border-slate-900 transition-all p-3 outline-none text-sm resize-none" 
           placeholder="I'm interested in discussing your experience at ADP..."

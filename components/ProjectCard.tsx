@@ -10,13 +10,7 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
     <div className="group relative bg-white border border-slate-100 rounded-3xl overflow-hidden hover:border-slate-300 transition-all hover:shadow-2xl">
-      <div className="aspect-[16/10] overflow-hidden bg-slate-100">
-        <img 
-          src={project.image} 
-          alt={project.title} 
-          className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
-        />
-      </div>
+      
       <div className="p-8">
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.map(tag => (

@@ -13,7 +13,7 @@ export const Layout: React.FC<LayoutProps> = ({ activeSection, setActiveSection,
     { label: 'Work', value: Section.Projects },
     { label: 'Experience', value: Section.Experience },
     { label: 'Writing', value: Section.Blogs },
-    { label: 'Research', value: Section.Papers },
+   
   ];
 
   return (
@@ -44,7 +44,7 @@ export const Layout: React.FC<LayoutProps> = ({ activeSection, setActiveSection,
               ))}
               <li>
                 <a 
-                  href="#" 
+                  href="pragyan.pdf" 
                   target="_blank"
                   className="text-sm font-bold text-slate-400 hover:text-black transition-all flex items-center group"
                 >
@@ -76,9 +76,9 @@ export const Layout: React.FC<LayoutProps> = ({ activeSection, setActiveSection,
             <span>EUVRE</span>
           </div>
           <div className="flex space-x-12">
-            <a href="#" className="hover:text-black transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-black transition-colors">GitHub</a>
-            <a href="#" className="hover:text-black transition-colors">X / Twitter</a>
+            <a href="https://www.linkedin.com/in/pborthakur" className="hover:text-black transition-colors">LinkedIn</a>
+            <a href="https://github.com/Pragyan124" className="hover:text-black transition-colors">GitHub</a>
+            <a href="https://x.com/Pragyan1235" className="hover:text-black transition-colors">X / Twitter</a>
           </div>
         </div>
       </footer>

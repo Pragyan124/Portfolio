@@ -8,6 +8,12 @@ interface BlogCardProps {
 
 export const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   return (
+     <a
+      href={blog.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block py-10 border-b border-slate-100 last:border-0 group"
+    >
     <div className="py-10 border-b border-slate-100 last:border-0 group cursor-pointer">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex-1">
@@ -31,5 +37,6 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
         </div>
       </div>
     </div>
+    </a>
   );
 };

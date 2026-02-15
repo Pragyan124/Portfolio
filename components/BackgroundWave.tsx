@@ -45,12 +45,13 @@ export const BackgroundWave: React.FC = () => {
         ctx.beginPath();
         
         // Very thin strokes for "string" look
-        ctx.lineWidth = 0.45;
+        ctx.lineWidth = 12;
         ctx.lineCap = 'round';
         
         // Opacity gradient: lines in the middle are more visible
         const relativeIndex = (i - lineCount / 2) / (lineCount / 2);
         const opacity = Math.max(0, 0.18 * (1 - Math.pow(Math.abs(relativeIndex), 1.5)));
+        
         ctx.strokeStyle = `rgba(0, 0, 0, ${opacity})`;
         
         const yBase = baseY + (i - lineCount / 2) * verticalSpacing;

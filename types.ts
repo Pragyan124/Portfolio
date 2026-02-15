@@ -4,7 +4,6 @@ export interface Project {
   title: string;
   description: string;
   tags: string[];
-  image: string;
   link: string;
   github?: string;
   impact?: string;
@@ -17,7 +16,7 @@ export interface Blog {
   date: string;
   readTime: string;
   category: string;
-  content: string;
+  link: string;
 }
 
 export interface Paper {
@@ -37,7 +36,7 @@ export interface Skill {
 
 export interface Experience {
   id: string;
-  company: string;
+  company: string | { src: string; alt: string };
   role: string;
   period: string;
   description: string[];
@@ -48,7 +47,7 @@ export enum Section {
   Home = 'home',
   Projects = 'projects',
   Blogs = 'blogs',
-  Papers = 'papers',
+  // Papers = 'papers',
   Experience = 'experience',
   Contact = 'contact'
 }

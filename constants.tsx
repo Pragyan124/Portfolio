@@ -5,49 +5,35 @@ import { Project, Blog, Paper, Skill, Experience } from './types';
 export const PROJECTS: Project[] = [
   {
     id: '1',
-    title: 'CloudScale Optimizer',
-    description: 'An automated resource scaling engine for Kubernetes clusters that reduces cloud spend by optimizing pod placement based on real-time traffic patterns.',
-    tags: ['Go', 'Kubernetes', 'AWS', 'Prometheus'],
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop',
-    link: '#'
+    title: 'Nexus Payroll',
+    description: 'The Payroll Management System is designed to manage multi-company payroll operations, attendance tracking through check-in/check-out, compliance documentation, reports generation, allowances, deductions, incentives, and workflow automation. The system will support three user roles and will include payment gateway integration for financial transactions.',
+    tags: ['SpringBoot', 'React', 'Docker', 'JWT', 'POSTGRES'],
+    link: 'https://nexus-payroll-six.vercel.app/',
+    github: 'https://github.com/Pragyan124/nexus-payroll'
   },
+
   {
     id: '2',
-    title: 'SecureAuth Protocol',
-    description: 'A custom implementation of a Zero-Knowledge Proof authentication layer designed for high-security banking applications.',
-    tags: ['Rust', 'Cryptography', 'Node.js', 'Redis'],
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop',
-    link: '#'
+    title: 'Knowledge Ingestion Pipeline',
+    description: 'An automated serverless pipeline that fetches the latest CS research papers, uses Google Gemini 2.5 AI to summarize them into "Engineering Takeaways," and pushes the insights to Discord daily.',
+    tags: ['Scala', 'GITHUB ACTIONS', 'GEMINI'],
+    link: 'https://github.com/Pragyan124/Knowledge_Ingestion_Pipeline',
+    github: 'https://github.com/Pragyan124/Knowledge_Ingestion_Pipeline'
   },
-  {
-    id: '3',
-    title: 'DataStream Engine',
-    description: 'High-throughput event processing pipeline capable of handling 500k+ events per second with sub-millisecond latency.',
-    tags: ['Java', 'Kafka', 'Flink', 'Cassandra'],
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=800&auto=format&fit=crop',
-    link: '#'
-  }
+
+
 ];
 
 export const BLOGS: Blog[] = [
   {
     id: '1',
-    title: 'Why I Switched from REST to gRPC',
-    excerpt: 'Exploring the performance benefits and trade-offs of moving to a binary protocol for internal microservices.',
-    date: 'Oct 12, 2024',
-    readTime: '6 min',
-    category: 'Architecture',
-    content: 'Full content...'
+    title: 'Are you burning cash on High-Performance CPUs?',
+    excerpt: 'How choosing Funnel Sort cuts cost and latency',
+    date: 'Feb 10, 2025',
+    readTime: '5 min',
+    category: 'Advanced Algorithms, Databases',
+    link: 'https://borthakurpragyan15.substack.com?utm_source=navbar&utm_medium=web'
   },
-  {
-    id: '2',
-    title: 'Testing the Untestable',
-    excerpt: 'Strategies for unit testing complex asynchronous workflows in distributed systems without losing your mind.',
-    date: 'Sep 24, 2024',
-    readTime: '8 min',
-    category: 'Engineering',
-    content: 'Full content...'
-  }
 ];
 
 export const PAPERS: Paper[] = [
@@ -65,35 +51,28 @@ export const PAPERS: Paper[] = [
 export const EXPERIENCE: Experience[] = [
   {
     id: 'exp1',
-    company: 'Skale Labs',
-    role: 'Senior Systems Engineer',
-    period: '2021 — Present',
+    company: {
+      src: 'Adp-Logo-PNG.png',
+      alt: 'ADP Logo'
+    },
+    role: 'Software Engineering Intern, NAS TIME Team',
+    period: 'July,2025 - Sept,2025',
     description: [
-      'Leading the architecture of high-performance validator nodes for the SKALE network.',
-      'Implemented custom gossip protocols resulting in 30% faster consensus cycles.',
-      'Optimizing node infrastructure for AI agent execution environments.'
+       'Engineered secure encryption/decryption workflows strengthening Global Security Operations (GSO), implementing AES-256 encryption standards to protect sensitive payroll data for 1M+ clients across enterprise systems.',
+       'Optimized WOTC tax credit processor workflows by implementing data validation pipelines, reducing validation errors by 25% and improving audit traceability by 40% through enhanced logging mechanisms.',
+       'Contributed to AWS migration project to seamlessly migrate enterprise client data from MongoDB on servers to DynamoDB, enabling scalablity during peak-traffic hours and resilient cloud-native architecture.'
     ],
-    skills: ['Go', 'C++', 'Rust', 'Kubernetes']
-  },
-  {
-    id: 'exp2',
-    company: 'HyperFlow Systems',
-    role: 'Backend Architect',
-    period: '2018 — 2021',
-    description: [
-      'Architected a distributed event-streaming platform handling 1M+ concurrent connections.',
-      'Reduced database costs by 45% through strategic migration to cockroachDB and custom caching layers.',
-      'Mentored a team of 12 engineers on distributed systems best practices.'
-    ],
-    skills: ['Java', 'Kafka', 'Distributed Systems', 'AWS']
+    skills: ['.NET', 'C#', 'AWS', 'REST', 'MongoDB', 'SQLite', 'Agile Methodologies']
   }
 ];
 
 export const SKILLS: Skill[] = [
-  { category: 'Languages', items: ['TypeScript', 'Go', 'Rust', 'Python', 'SQL'] },
-  { category: 'Frontend', items: ['React', 'Next.js', 'Tailwind', 'Framer Motion'] },
-  { category: 'Backend', items: ['Node.js', 'PostgreSQL', 'Redis', 'Docker'] },
-  { category: 'Cloud', items: ['AWS', 'GCP', 'Kubernetes', 'Terraform'] }
+  { category: 'Languages', items: ['Java', 'JavaScript', 'TypeScript', 'C#'] },
+  { category: 'Frontend', items: ['React', 'Next.js', 'Tailwind'] },
+  { category: 'Backend', items: ['Node.js', 'Springboot', '.NET', 'Docker'] },
+  { category: 'Databases', items: ['Postgres', 'MongoDB', 'Redis', 'DynamoDB']},
+  { category: 'Cloud', items: ['Amazon Web Service', 'Google Cloud Platform', 'Kubernetes', 'Terraform'] }
+  
 ];
 
 export const ICONS = {

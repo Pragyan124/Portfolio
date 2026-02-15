@@ -5,7 +5,6 @@ import { PROJECTS, BLOGS, PAPERS, SKILLS, ICONS, EXPERIENCE } from './constants'
 import { Layout } from './components/Layout';
 import { ProjectCard } from './components/ProjectCard';
 import { BlogCard } from './components/BlogCard';
-import { AIAssistant } from './components/AIAssistant';
 import { ContactForm } from './components/ContactForm';
 import { BackgroundWave } from './components/BackgroundWave';
 
@@ -17,13 +16,13 @@ const App: React.FC = () => {
       {/* Landing Section with Continuous String Wave */}
       <section className="relative min-h-[95vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         <BackgroundWave />
-        
+
         <div className="relative z-10 max-w-5xl animate-in fade-in duration-1000 slide-in-from-bottom-8">
           <h1 className="text-[3.5rem] md:text-[6.5rem] font-tight font-black text-[#111] mb-6 leading-[0.95] tracking-[-0.05em] select-none">
             Systems. <br />
             Tradeoffs. Execution.
           </h1>
-          <p className="text-xl md:text-2xl text-slate-400 mb-12 font-medium tracking-tight flex items-center justify-center space-x-3">
+          <p className="text-xl md:text-2xl text-slate-100 mb-12 font-medium tracking-tight flex items-center justify-center space-x-3">
             <span className="opacity-40">•</span>
             <span>Databases</span>
             <span className="opacity-40">•</span>
@@ -32,15 +31,15 @@ const App: React.FC = () => {
             <span>Cloud Engineering</span>
             <span className="opacity-40">•</span>
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-            <button 
+            <button
               onClick={() => setActiveSection(Section.Projects)}
               className="w-full sm:w-auto px-12 py-5 bg-[#111] text-white font-bold rounded-2xl hover:bg-black transition-all shadow-2xl hover:-translate-y-1 active:scale-95 text-lg"
             >
               Build on my Stack
             </button>
-            <button 
+            <button
               onClick={() => setActiveSection(Section.Experience)}
               className="w-full sm:w-auto px-12 py-5 bg-white text-[#111] font-bold border border-slate-200 rounded-2xl hover:border-[#111] transition-all hover:-translate-y-1 active:scale-95 text-lg"
             >
@@ -61,7 +60,7 @@ const App: React.FC = () => {
       <section className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-5xl font-tight font-black mb-8 tracking-tighter">Purpose-Built Architectures</h2>
         <p className="text-slate-500 max-w-3xl mx-auto text-xl leading-relaxed font-medium opacity-70">
-          Engineering high-throughput, low-latency environments where complexity is managed and scale is predictable. 
+          Engineering high-throughput, low-latency environments where complexity is managed and scale is predictable.
           Optimizing for the next generation of intelligent, agentic systems.
         </p>
       </section>
@@ -88,7 +87,7 @@ const App: React.FC = () => {
       <section className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-end mb-16">
           <h2 className="text-4xl md:text-5xl font-tight font-black tracking-tighter">Case Studies</h2>
-          <button 
+          <button
             onClick={() => setActiveSection(Section.Projects)}
             className="text-base font-bold text-[#111] hover:opacity-60 transition-all flex items-center border-b-[3px] border-[#111] pb-1"
           >
@@ -118,14 +117,18 @@ const App: React.FC = () => {
     <div className="max-w-5xl mx-auto px-6 animate-in fade-in duration-500 slide-in-from-bottom-2">
       <div className="mb-24 text-center">
         <h2 className="text-6xl md:text-7xl font-tight font-black text-slate-900 mb-6 tracking-tight">Experience</h2>
-        <p className="text-2xl text-slate-500 font-medium opacity-60">Building the future of decentralized infrastructure.</p>
+       
       </div>
       <div className="space-y-24">
         {EXPERIENCE.map(exp => (
           <div key={exp.id} className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 border-t border-slate-100 pt-16">
             <div>
               <div className="text-xs font-bold text-slate-300 mb-4 uppercase tracking-[0.2em]">{exp.period}</div>
-              <h3 className="text-4xl font-bold text-slate-900 mb-2 tracking-tighter leading-tight">{exp.company}</h3>
+              <h3 className="text-4xl font-bold text-slate-900 mb-2 tracking-tighter leading-tight">{typeof exp.company === 'string' ? (
+                <p>{exp.company}</p>
+              ) : (
+                <img src={exp.company.src} alt={exp.company.alt} />
+              )}</h3>
               <div className="text-xl font-medium text-slate-400">{exp.role}</div>
             </div>
             <div className="space-y-8">
@@ -153,8 +156,8 @@ const App: React.FC = () => {
   const renderBlogs = () => (
     <div className="max-w-3xl mx-auto px-6 animate-in fade-in duration-500 slide-in-from-bottom-2">
       <div className="mb-24">
-        <h2 className="text-6xl font-tight font-black text-slate-900 mb-6 tracking-tight">Engineering Insights</h2>
-        <p className="text-2xl text-slate-500 font-medium opacity-60">Deep dives into distributed systems and architectural philosophies.</p>
+        <h2 className="text-6xl font-tight font-black text-slate-900 mb-6 tracking-tight">Engineering Blogs</h2>
+        <p className="text-2xl text-slate-500 font-medium opacity-60">Deep dives into distributed systems , databases, and algorithms</p>
       </div>
       <div className="space-y-4">
         {BLOGS.map(b => <BlogCard key={b.id} blog={b} />)}
@@ -187,9 +190,9 @@ const App: React.FC = () => {
     <div className="max-w-6xl mx-auto px-6 animate-in fade-in duration-500 slide-in-from-bottom-2">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
         <div>
-          <h2 className="text-7xl font-tight font-black text-slate-900 mb-10 leading-[0.9] tracking-tighter">Join the <br/><span className="text-slate-200">Architecture.</span></h2>
+          <h2 className="text-7xl font-tight font-black text-slate-900 mb-10 leading-[0.9] tracking-tighter">Let's<br /><span className="text-slate-300">Connect</span></h2>
           <p className="text-2xl text-slate-500 mb-14 font-medium leading-relaxed opacity-70">
-            Evaluating complex systems or scaling your next venture? Let's discuss infrastructure.
+           Reach out directly
           </p>
           <div className="space-y-10">
             <div className="flex items-center space-x-8 group">
@@ -198,7 +201,7 @@ const App: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <span className="text-2xl font-black text-[#111] tracking-tight">hello@engineer.io</span>
+              <span className="text-2xl font-black text-[#111] tracking-tight">borthakurpragyan15@gmail.com</span>
             </div>
           </div>
         </div>
@@ -214,10 +217,9 @@ const App: React.FC = () => {
       {activeSection === Section.Home && renderHome()}
       {activeSection === Section.Projects && renderProjects()}
       {activeSection === Section.Blogs && renderBlogs()}
-      {activeSection === Section.Papers && renderPapers()}
       {activeSection === Section.Experience && renderExperience()}
       {activeSection === Section.Contact && renderContact()}
-      <AIAssistant />
+
     </Layout>
   );
 };
